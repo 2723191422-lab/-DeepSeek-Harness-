@@ -1,0 +1,21 @@
+/** Searchable notes, grounded card authoring and saved resources, with no mock data. */
+import { createElement as h, useState } from 'react';
+import { dueCards } from '../domain/srs.js';
+import { safeLink } from './data.js';
+import { Tabs, Button, Field, Tag, EmptyState, Confirm } from './components.js';
+import { RecordForm } from './forms.js';
+import { Review } from './review.js';
+/** Searchable notes, review cards and saved resources.
+ * @param {object} props - Data, callbacks and localized text for this view.
+ * @returns {object|null} Rendered React element.
+ */
+export function Knowledge({ data, store, t }) {
+    const [tab, setTab] = useState('notes');
+    const [search, setSearch] = useState('');
+    const [editing, setEditing] = useState(null);
+    const [deleting, setDeleting] = useState(null);
+    const [session, setSession] = useState(0);
+    const rows = data[tab === 'review' ? 'cards' : tab].filter(row => `${row.title || row.front || ''} ${row.markdown || ''} ${(row.tags || []).join(' ')}`.toLowerCase().includes(search.toLowerCase()));
+    const add = () => setEditing({ table: tab === 'review' ? 'cards' : tab });
+    return h('div', null, h('header', { className: 'ld-page-header' }, h('div', null, h('p', { className: 'ld-eyebrow' }, t('eyebrow')), h('h1', null, t('navKnowledge')), h('p', { className: 'ld-muted' }, t('knowledgeHint'))), h(Button, { primary: true, onClick: add }, t(tab === 'review' ? 'addCard' : tab === 'notes' ? 'addNote' : 'addResource'))), h(Tabs, { label: t('navKnowledge'), items: ['notes', 'review', 'resources'].map(id => ({ id, label: id === 'review' ? `${t(id)} · ${Math.min(dueCards(data.cards, Date.now()).length, data.settings.reviewLimit)}` : t(id) })), value: tab, onChange: value => { setTab(value); setSearch(''); setSession(session + 1); } }), tab === 'review' && h('section', { className: 'ld-card' }, h(Review, { key: session, data, store, t, onAdd: add })), h('section', { className: 'ld-card' }, h(Field, { label: t('search'), type: 'search', value: search, onChange: event => setSearch(event.target.value) }), rows.length ? rows.map(row => h('article', { className: 'ld-knowledge-row', key: row.id }, h('div', { className: 'ld-row' }, h('h3', null, row.title || row.front || row.markdown?.slice(0, 48) || t('note')), tab === 'resources' && h(Tag, null, t(row.status))), tab === 'notes' && h('pre', { className: 'ld-markdown' }, row.markdown), tab === 'resources' && h('div', null, h('p', null, `${t(row.kind)} · ${Math.round(row.progress * 100)}%`), h('p', { className: 'ld-muted' }, row.note), safeLink(row.url) && h('a', { className: 'ld-link', href: safeLink(row.url), target: '_blank', rel: 'noopener noreferrer' }, t('open'))), tab === 'review' && h('p', { className: 'ld-muted' }, `${data.decks.find(deck => deck.id === row.deckId)?.name || ''} · ${t('date')} ${new Date(row.due).toLocaleDateString()}`), h('div', { className: 'ld-actions' }, (row.tags || []).map(tag => h(Tag, { key: tag }, tag)), (row.linkTaskIds || []).map(id => h(Tag, { key: id }, data.tasks.find(task => task.id === id)?.title || id)), (row.linkCourseIds || []).map(id => h(Tag, { key: id }, data.courses.find(course => course.id === id)?.name || id))), h('div', { className: 'ld-actions' }, h(Button, { onClick: () => setEditing({ table: tab === 'review' ? 'cards' : tab, record: row }) }, t('edit')), tab === 'notes' && h(Button, { onClick: () => setEditing({ table: 'cards', record: { id: crypto.randomUUID(), front: row.title, back: row.markdown }, fromNote: true }) }, t('cardsFromNote')), h(Button, { onClick: () => setDeleting({ table: tab === 'review' ? 'cards' : tab, id: row.id }) }, t('delete'))))) : h(EmptyState, { t, hint: tab === 'notes' ? 'emptyNotes' : tab === 'review' ? 'emptyReview' : 'emptyResources', action: tab === 'notes' ? 'addNote' : tab === 'review' ? 'addCard' : 'addResource', onAction: add })), editing && h(RecordForm, { ...editing, record: editing.fromNote ? undefined : editing.record, seed: editing.fromNote ? editing.record : undefined, data, store, t, onClose: () => { setEditing(null); setSession(session + 1); } }), deleting && h(Confirm, { t, message: 'confirmDelete', onClose: () => setDeleting(null), action: () => store.command({ type: 'delete', ...deleting }, 'deleted') }));
+}

@@ -1,0 +1,320 @@
+{
+  "description": "Entirely synthetic fixed-input tool snapshot; no model session data.",
+  "initial": {
+    "version": 1,
+    "courses": [
+      {
+        "id": "fixture-course",
+        "name": "Synthetic science",
+        "teacher": "",
+        "location": "",
+        "weekday": 1,
+        "start": "09:00",
+        "end": "10:00",
+        "weeks": {
+          "from": 1,
+          "to": 16,
+          "parity": "all"
+        },
+        "color": "",
+        "note": ""
+      }
+    ],
+    "tasks": [
+      {
+        "id": "fixture-task",
+        "title": "Synthetic reading",
+        "courseId": null,
+        "date": "2030-01-07",
+        "estimateMin": 40,
+        "spentMin": 0,
+        "status": "todo",
+        "priority": "medium",
+        "tags": [],
+        "subtasks": [],
+        "order": 0
+      }
+    ],
+    "notes": [
+      {
+        "id": "fixture-note",
+        "title": "Synthetic water facts",
+        "markdown": "Water freezes at 0 degrees Celsius under standard pressure.",
+        "tags": [],
+        "linkTaskIds": [],
+        "linkCourseIds": [],
+        "createdAt": 1894017600000,
+        "updatedAt": 1894017600000
+      }
+    ],
+    "resources": [],
+    "decks": [],
+    "cards": [],
+    "focus_records": [],
+    "day_plans": [],
+    "settings": {
+      "dailyGoalMin": 120,
+      "pomodoroMin": 25,
+      "breakMin": 5,
+      "reviewLimit": 20,
+      "termStartDate": "2030-01-07",
+      "weekStartsOn": 1,
+      "theme": "system"
+    }
+  },
+  "calls": [
+    {
+      "name": "learning_desk_today",
+      "args": {
+        "date": "2030-01-07"
+      },
+      "time": 1894017600000,
+      "value": {
+        "fixed": [
+          {
+            "id": "c:fixture-course",
+            "kind": "course",
+            "refId": "fixture-course",
+            "title": "Synthetic science",
+            "start": "09:00",
+            "end": "10:00",
+            "startMin": 540,
+            "endMin": 600,
+            "minutes": 60,
+            "moved": false,
+            "location": "",
+            "color": ""
+          }
+        ],
+        "scheduled": [
+          {
+            "id": "t:fixture-task",
+            "kind": "task",
+            "refId": "fixture-task",
+            "title": "Synthetic reading",
+            "start": "08:00",
+            "end": "08:40",
+            "startMin": 480,
+            "endMin": 520,
+            "minutes": 40,
+            "moved": false,
+            "courseId": null,
+            "estimateMin": 40
+          }
+        ],
+        "overflow": [],
+        "freeMinutes": 740,
+        "blocks": [
+          {
+            "id": "t:fixture-task",
+            "kind": "task",
+            "refId": "fixture-task",
+            "title": "Synthetic reading",
+            "start": "08:00",
+            "end": "08:40",
+            "startMin": 480,
+            "endMin": 520,
+            "minutes": 40,
+            "moved": false,
+            "courseId": null,
+            "estimateMin": 40
+          },
+          {
+            "id": "c:fixture-course",
+            "kind": "course",
+            "refId": "fixture-course",
+            "title": "Synthetic science",
+            "start": "09:00",
+            "end": "10:00",
+            "startMin": 540,
+            "endMin": 600,
+            "minutes": 60,
+            "moved": false,
+            "location": "",
+            "color": ""
+          }
+        ]
+      },
+      "isError": false
+    },
+    {
+      "name": "learning_desk_add_task",
+      "args": {
+        "title": "Synthetic science exercise",
+        "date": "2030-01-07",
+        "estimateMin": 20,
+        "priority": "high"
+      },
+      "time": 1894017600000,
+      "value": {
+        "id": "fixture-created-1",
+        "title": "Synthetic science exercise",
+        "courseId": null,
+        "date": "2030-01-07",
+        "estimateMin": 20,
+        "spentMin": 0,
+        "status": "todo",
+        "priority": "high",
+        "tags": [],
+        "subtasks": [],
+        "order": 0
+      },
+      "isError": false
+    },
+    {
+      "name": "learning_desk_plan_day",
+      "args": {
+        "date": "2030-01-07",
+        "overrides": []
+      },
+      "time": 1894017600000,
+      "value": {
+        "fixed": [
+          {
+            "id": "c:fixture-course",
+            "kind": "course",
+            "refId": "fixture-course",
+            "title": "Synthetic science",
+            "start": "09:00",
+            "end": "10:00",
+            "startMin": 540,
+            "endMin": 600,
+            "minutes": 60,
+            "moved": false,
+            "location": "",
+            "color": ""
+          }
+        ],
+        "scheduled": [
+          {
+            "id": "t:fixture-created-1",
+            "kind": "task",
+            "refId": "fixture-created-1",
+            "title": "Synthetic science exercise",
+            "start": "08:00",
+            "end": "08:20",
+            "startMin": 480,
+            "endMin": 500,
+            "minutes": 20,
+            "moved": false,
+            "courseId": null,
+            "estimateMin": 20
+          },
+          {
+            "id": "t:fixture-task",
+            "kind": "task",
+            "refId": "fixture-task",
+            "title": "Synthetic reading",
+            "start": "08:20",
+            "end": "09:00",
+            "startMin": 500,
+            "endMin": 540,
+            "minutes": 40,
+            "moved": false,
+            "courseId": null,
+            "estimateMin": 40
+          }
+        ],
+        "overflow": [],
+        "freeMinutes": 720,
+        "blocks": [
+          {
+            "id": "t:fixture-created-1",
+            "kind": "task",
+            "refId": "fixture-created-1",
+            "title": "Synthetic science exercise",
+            "start": "08:00",
+            "end": "08:20",
+            "startMin": 480,
+            "endMin": 500,
+            "minutes": 20,
+            "moved": false,
+            "courseId": null,
+            "estimateMin": 20
+          },
+          {
+            "id": "t:fixture-task",
+            "kind": "task",
+            "refId": "fixture-task",
+            "title": "Synthetic reading",
+            "start": "08:20",
+            "end": "09:00",
+            "startMin": 500,
+            "endMin": 540,
+            "minutes": 40,
+            "moved": false,
+            "courseId": null,
+            "estimateMin": 40
+          },
+          {
+            "id": "c:fixture-course",
+            "kind": "course",
+            "refId": "fixture-course",
+            "title": "Synthetic science",
+            "start": "09:00",
+            "end": "10:00",
+            "startMin": 540,
+            "endMin": 600,
+            "minutes": 60,
+            "moved": false,
+            "location": "",
+            "color": ""
+          }
+        ]
+      },
+      "isError": false
+    },
+    {
+      "name": "learning_desk_cards_from_note",
+      "args": {
+        "noteId": "fixture-note"
+      },
+      "time": 1894017600000,
+      "value": {
+        "note": {
+          "id": "fixture-note",
+          "title": "Synthetic water facts",
+          "markdown": "Water freezes at 0 degrees Celsius under standard pressure.",
+          "tags": [],
+          "linkTaskIds": [],
+          "linkCourseIds": [],
+          "createdAt": 1894017600000,
+          "updatedAt": 1894017600000
+        },
+        "instruction": "Create question/answer pairs from this note and call the same tool with cards to save them."
+      },
+      "isError": false
+    },
+    {
+      "name": "learning_desk_cards_from_note",
+      "args": {
+        "noteId": "fixture-note",
+        "cards": [
+          {
+            "front": "At standard pressure, when does water freeze?",
+            "back": "0 degrees Celsius."
+          }
+        ]
+      },
+      "time": 1894017600000,
+      "value": {
+        "noteId": "fixture-note",
+        "deckId": "fixture-created-2",
+        "cards": [
+          {
+            "id": "fixture-created-3",
+            "deckId": "fixture-created-2",
+            "front": "At standard pressure, when does water freeze?",
+            "back": "0 degrees Celsius.",
+            "ease": 2.5,
+            "intervalDays": 0,
+            "due": 1894017600000,
+            "lapses": 0,
+            "reps": 0
+          }
+        ]
+      },
+      "isError": false
+    }
+  ]
+}

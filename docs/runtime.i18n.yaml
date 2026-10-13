@@ -1,0 +1,28 @@
+# Bilingual-pair consistency record for runtime.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   Use the Harness bilingual helpers with this package as repoRoot.
+/:
+  en: c8552c3d647d3bb4
+  zh: 940ffce0304d2970
+/runtime-architecture:
+  en: 4f039f0dadd893ab
+  zh: fae74176af0b34dd
+/runtime-architecture/summary:
+  en: e2f7351688a0c1fa
+  zh: c7bfc9a5ccf05045
+/runtime-architecture/table-of-contents:
+  en: 1d7277b99ae2efb5
+  zh: dea3186167afea14
+/runtime-architecture/data-and-transport:
+  en: c8dda153d56b6236
+  zh: ce7976ccf33c7b89
+/runtime-architecture/lifecycle-and-recovery:
+  en: c88737d884559051
+  zh: d5b93efd951ed636
+/runtime-architecture/client-generation:
+  en: c1092646342f0f09
+  zh: 6d5189cdbe2f51b5
+/runtime-architecture/platform-evidence:
+  en: 2c795ecc3f1f14fc
+  zh: e06895b204362371

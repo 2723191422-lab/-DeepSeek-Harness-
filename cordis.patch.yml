@@ -1,0 +1,4 @@
+- insert:
+    - id: learning-desk
+      name: dsh-learning-desk
+      config: {}

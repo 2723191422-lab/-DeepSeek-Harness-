@@ -1,0 +1,16 @@
+# Bilingual-pair consistency record for guide.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   Use the Harness bilingual helpers with this package as repoRoot.
+/:
+  en: 646e33d7fa5747a0
+  zh: eecb0936537b875e
+/host-owned-learning-data:
+  en: 818e91899b499c8b
+  zh: 47c305dc3c63dedc
+/host-owned-learning-data/change:
+  en: b2f5e04f79548b06
+  zh: 92642222455f4094
+/host-owned-learning-data/migration:
+  en: 99730cb5f8a14844
+  zh: 8fe8a3c9e99524f4

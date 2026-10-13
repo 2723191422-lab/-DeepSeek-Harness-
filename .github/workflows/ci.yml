@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: verify (node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - '24'
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # A clean clone has no node_modules: the record schemas need `zod`, and
+      # nothing outside this repository can supply it.
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Manifest and contract self-check
+        run: npm run check
+
+      - name: Parse Host and Web halves
+        run: |
+          node --check index.js
+          node --check client.js
+
+      - name: Generated client freshness
+        run: node scripts/build-client.mjs && git diff --exit-code client.js
+
+      - name: Unit tests
+        run: node --test

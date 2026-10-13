@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Personal Learning Desk">
+  <path d="M32 18v36"/>
+  <path d="M32 19C26.2 14.4 18.6 13.2 10.5 14v33.4c8.1-.8 15.7.4 21.5 5"/>
+  <path d="M32 19c5.8-4.6 13.4-5.8 21.5-5v33.4c-8.1-.8-15.7.4-21.5 5"/>
+  <path d="M43.5 22.5l4 4 7.5-8"/>
+</svg>

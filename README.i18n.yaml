@@ -1,0 +1,34 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   Use the Harness bilingual helpers with this package as repoRoot.
+/:
+  en: 7222f5c49f341c02
+  zh: 03db8324b4714011
+/learning-desk:
+  en: 38d9ff53f854069a
+  zh: cae35aef9b56f68c
+/learning-desk/summary:
+  en: dd30a861f8970f7e
+  zh: e20a902e44ae4e64
+/learning-desk/table-of-contents:
+  en: ab6f5121f0b21d3d
+  zh: 0bf68d2a75c52a5a
+/learning-desk/install:
+  en: 4b6e19ed7599f70e
+  zh: f0c4591be29755df
+/learning-desk/use-the-desk:
+  en: a6e75b7b73393fe7
+  zh: e04481ac66dfae16
+/learning-desk/development:
+  en: 34de6406b88cd486
+  zh: ce31597ee823e1a8
+/learning-desk/implementation:
+  en: 2b0bd9400178b3a0
+  zh: 05e5f9f5519f51c2
+/learning-desk/limitations:
+  en: 7a6417c5592b287e
+  zh: 28baefed36f21045
+/learning-desk/license:
+  en: 017aa101a3bad378
+  zh: a5e3fe1fcbcf0667
