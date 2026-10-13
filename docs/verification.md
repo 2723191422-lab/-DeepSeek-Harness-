@@ -48,4 +48,19 @@ DeepSeek-V4.1-Flash / High 在新建的“学习台插件四工具联调”会�
 
 从提交 `f98eef4` 执行 `git archive HEAD` 解包到 `/private/tmp`，独立 `npm ci` 实际安装 1 个依赖。随后 `npm run build`、`npm run check` 通过，`npm test` 为 112 passed / 0 failed / 0 skipped；生成的 client.js 与提交内容逐字节一致。`npm pack` 输出 38 个文件、107.7 kB 的 `dsh-learning-desk-1.0.0.tgz`，SHA-1 为 `b8c8e42a3931a46f229b3d05bb69e45047637618`。
 
-GitHub 安装与发布结果完成后追加于本记录。
+## GitHub 安装
+
+源码提交 `38066f9d6ea149d4923a6936faea46c78405030d` 已发布，远端文件树与本机逐项一致。该远端提交另行 `git archive` 到全新临时目录，`npm ci --offline` 使用已下载的注册表缓存独立安装依赖；构建、检查和 112 项测试全部通过。UTC 时区下工具合成快照、日历和计时的 10 项相关测试通过。
+
+创建新 profile：`pnpm dsh --profile ldrelease --from-default-profile web --dump-config`，再运行 `pnpm dsh plugin --profile ldrelease add github:2723191422-lab/-DeepSeek-Harness-`。实际安装结果：
+
+```text
+Packages: +2
+dependencies:
++ dsh-learning-desk 1.0.0
+Done in 5.8s using pnpm v11.28.5
+```
+
+通过 `pnpm dsh --profile ldrelease --no-open --host 127.0.0.1 --port 19398` 启动 GitHub 安装副本。真实浏览器出现学习台入口，今日页面显示同一 Host 中的课程、任务和计时器，没有加载失败。
+
+公开仓库保留原有初始化提交；实际会话 fixture 因自动审批对会话派生数据的限制未发布，公开快照由独立固定输入生成。完整 Session、密钥、本机认证链接均不包含在源码和发布包中。
